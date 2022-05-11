@@ -3,14 +3,20 @@
     <h2>{{ title }}</h2>
     <ul>
       <li v-for="item in items" :key="item.id">
+        Poster:
+        <img
+          :src="'https://image.tmdb.org/t/p/w342/' + item.poster_path"
+          :alt="item.title"
+        />
+        <br />
         id: {{ item.id }}<br />
-        titolo originale:
+        Titolo Originale:
         {{ item.original_title ? item.original_title : item.original_name
         }}<br />
-        titolo: {{ item.title ? item.title : item.name }}<br />
-        lingua: {{ item.original_language }}<br />
+        Titolo: {{ item.title ? item.title : item.name }}<br />
+        Lingua: {{ item.original_language }}<br />
 
-        voto: {{ item.vote_average }}<br />
+        Voto: {{ item.vote_average }}<br />
       </li>
     </ul>
   </section>
@@ -33,11 +39,7 @@ export default {
     //     return state.search
     // }
   },
-  methods: {
-    // leggi(){
-    //     actions.setSearch('aaaaa')
-    // }
-  },
+  methods: {},
 };
 </script>
 
