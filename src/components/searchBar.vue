@@ -1,5 +1,12 @@
 <template>
-  <div>searchbar {{ mysearch }}</div>
+  <div>
+    <input
+      type="text"
+      v-model="search"
+      @keyup.enter="$emit('performSearch', search)"
+    />
+    <button @click="cerca">Cerca</button>
+  </div>
 </template>
 
 <script>
@@ -7,14 +14,21 @@ import state from "../store.js";
 export default {
   name: "searchBar",
   data() {
-    return {};
+    return {
+      search: "",
+    };
   },
   computed: {
     mysearch() {
       return state.search;
     },
   },
-  methods: {},
+  methods: {
+    cerca() {
+      this.$emit("performSearch", this.search);
+      this.search = "";
+    },
+  },
 };
 </script>
 
