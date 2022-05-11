@@ -10,18 +10,18 @@
 </template>
 
 <script>
-import state from "../store.js";
+//import state from '../store.js'
 export default {
-  name: "searchBar",
+  name: "SearchBar",
   data() {
     return {
       search: "",
     };
   },
   computed: {
-    mysearch() {
-      return state.search;
-    },
+    // mysearch(){
+    //     return state.search
+    // }
   },
   methods: {
     cerca() {
@@ -32,4 +32,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>

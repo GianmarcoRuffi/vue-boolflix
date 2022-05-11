@@ -1,43 +1,44 @@
 <template>
   <section>
+    <h2>{{ title }}</h2>
     <ul>
-      <li v-for="movie in movies" :key="movie.id">
-        id:
-        {{ movie.id }}
-        <br />
+      <li v-for="item in items" :key="item.id">
+        id: {{ item.id }}<br />
         titolo originale:
-        {{ movie.original_title }}
-        titolo:
-        {{ movie.title }}
-        lingua:
-        {{ movie.original_language }}
-        <img src="require('./assets/images/'+item.original.language+ '.jpg')" />
-        voto:
-        {{ movie.vote_Average }}
+        {{ item.original_title ? item.original_title : item.original_name
+        }}<br />
+        titolo: {{ item.title ? item.title : item.name }}<br />
+        lingua: {{ item.original_language }}<br />
+
+        voto: {{ item.vote_average }}<br />
       </li>
     </ul>
   </section>
 </template>
 
 <script>
-import state from "../store.js";
+//import {state, actions} from '../store.js'
 export default {
   name: "GridList",
-  props: { items: Array, loader: Boolean },
+  props: {
+    items: Array,
+    loader: Boolean,
+    title: String,
+  }, //['items','loader'],
   data() {
     return {};
   },
   computed: {
-    mysearch() {
-      return state.search;
-    },
+    // mysearch(){
+    //     return state.search
+    // }
   },
   methods: {
-    leggi() {
-      state.search = "pippo";
-    },
+    // leggi(){
+    //     actions.setSearch('aaaaa')
+    // }
   },
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>
