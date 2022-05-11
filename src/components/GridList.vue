@@ -14,9 +14,9 @@
         {{ item.original_title ? item.original_title : item.original_name
         }}<br />
         Titolo: {{ item.title ? item.title : item.name }}<br />
-        Lingua: {{ item.original_language }}<br />
+        Lingua: {{ item.original_language }}
 
-        <img :src="getFlag(item.original_language)" />
+        <img :src="getFlag(item.original_language)" /><br />
 
         Voto: {{ item.vote_average }}<br />
       </li>
@@ -45,17 +45,17 @@ export default {
     getFlag(flag) {
       switch (flag) {
         case "en":
-          return "https://flagcdn.com/16x12/uk.png";
+          return "https://flagcdn.com/h40/gb.png";
         case "it":
-          return "https://flagcdn.com/16x12/it.png";
+          return "https://flagcdn.com/h40/it.png";
         case "fr":
-          return "https://flagcdn.com/16x12/fr.png";
+          return "https://flagcdn.com/h40/fr.png";
         case "es":
-          return "https://flagcdn.com/16x12/es.png";
+          return "https://flagcdn.com/h40/es.png";
         case "de":
-          return "https://flagcdn.com/16x12/de.png";
+          return "https://flagcdn.com/h40/de.png";
         case "ru":
-          return "https://flagcdn.com/16x12/ru.png";
+          return "https://flagcdn.com/h40/ru.png";
         default:
           return flag;
       }
