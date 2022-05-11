@@ -1,14 +1,28 @@
 <template>
-  <section></section>
+  <section>
+    Sono GridList
+    <button @click="leggi">clicca</button>
+    {{ mysearch }}
+  </section>
 </template>
 
 <script>
+import state from "../store.js";
 export default {
   name: "GridList",
   data() {
     return {};
   },
-  methods: {},
+  computed: {
+    mysearch() {
+      return state.search;
+    },
+  },
+  methods: {
+    leggi() {
+      state.search = "pippo";
+    },
+  },
 };
 </script>
 

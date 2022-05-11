@@ -1,5 +1,5 @@
 <template>
-  <div>searchbar {{ state.search }}</div>
+  <div>searchbar {{ mysearch }}</div>
 </template>
 
 <script>
@@ -7,9 +7,12 @@ import state from "../store.js";
 export default {
   name: "searchBar",
   data() {
-    return {
-      state,
-    };
+    return {};
+  },
+  computed: {
+    mysearch() {
+      return state.search;
+    },
   },
   methods: {},
 };
