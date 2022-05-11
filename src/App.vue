@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <h1 class="text-center">Boolflix</h1>
+    <header><h1 class="display-6">Boolflix</h1></header>
+    <searchBar />
+
+    <main><grid-list /></main>
   </div>
 </template>
 
 <script>
+import GridList from "./components/GridList.vue";
+import searchBar from "./components/searchBar.vue";
 export default {
   name: "App",
-  components: {},
+  components: { searchBar, GridList },
 };
 </script>
 
