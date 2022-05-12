@@ -2,17 +2,18 @@
   <div id="app">
     <header>
       <h1 class="display-6">Boolflix</h1>
-      <search-bar @performSearch="search" />
+      <SearchBar @performSearch="search" />
     </header>
     <main>
-      <grid-list :items="movies" title="Movies" :loader="loading" />
-      <grid-list :items="series" title="Series" :loader="loadingSeries" />
+      <GridList :items="movies" title="Movies" :loader="loading" />
+      <GridList :items="series" title="Series" :loader="loadingSeries" />
     </main>
   </div>
 </template>
 
 <script>
 import GridList from "./components/GridList.vue";
+// import CardComponent from "./components/CardComponent.vue";
 import SearchBar from "./components/SearchBar.vue";
 import axios from "axios";
 
@@ -21,6 +22,7 @@ export default {
   components: {
     SearchBar,
     GridList,
+    // CardComponent,
   },
   data() {
     return {
@@ -57,20 +59,8 @@ export default {
           console.log(error);
         });
     },
-    // getSeriesDue(queryParams){
-    //   return axios.get(this.apiPath+'tv', queryParams)
-    // },
-    // getMoviesDue(queryParams){
-    //   return axios.get(this.apiPath+'movie', queryParams)
-    // },
-    // getAll(queryParams){
-    //   Promise.all([this.getMoviesDue(queryParams), this.getSeriesDue(queryParams)]).then(function (results) {
-    //     console.log(results[0]);
-    //      console.log(results[1]);
-    //   });
-    // },
+
     search(text) {
-      //console.log(text);
       const queryParams = {
         params: {
           api_key: this.apiKey,
@@ -79,7 +69,6 @@ export default {
       };
       this.loading = true;
       this.loadingSeries = true;
-      //this.getAll(queryParams);
       this.getMovies(queryParams);
       this.getSeries(queryParams);
     },
@@ -89,4 +78,5 @@ export default {
 
 <style lang="scss">
 @import "./styles/general.scss";
+@import "./styles/vars.scss";
 </style>

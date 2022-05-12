@@ -10,7 +10,6 @@
 </template>
 
 <script>
-//import state from '../store.js'
 export default {
   name: "SearchBar",
   data() {
@@ -18,11 +17,7 @@ export default {
       search: "",
     };
   },
-  computed: {
-    // mysearch(){
-    //     return state.search
-    // }
-  },
+  computed: {},
   methods: {
     cerca() {
       this.$emit("performSearch", this.search);
