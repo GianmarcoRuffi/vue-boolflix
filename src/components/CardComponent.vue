@@ -1,5 +1,6 @@
 <template>
   <div class="movie-card">
+    <!-- Poster -->
     <div class="poster">
       <img
         v-if="item.poster_path != null"
@@ -15,26 +16,32 @@
       />
     </div>
 
+    <!-- Infos -->
     <!-- id: {{ item.id }} -->
     <div class="infos">
-      Titolo Originale:
-      {{ item.original_title ? item.original_title : item.original_name }}<br />
-      Titolo: {{ item.title ? item.title : item.name }}<br />
-      Lingua:
-      <img
-        v-if="availableFlags.includes(item.original_language)"
-        class="flag"
-        :src="getFlag(item.original_language)"
-        :alt="`Flag ${item.original_language}`"
-      />
-      <p v-else class="fw-bold">
-        {{ item.original_language }}
+      <h4>Titolo Originale:</h4>
+      <p>
+        {{ item.original_title ? item.original_title : item.original_name }}
       </p>
-      <br />
+      <h4>Titolo: {{ item.title ? item.title : item.name }}</h4>
+      <div>
+        <h4>Lingua:</h4>
+        <img
+          v-if="availableFlags.includes(item.original_language)"
+          class="flag"
+          :src="getFlag(item.original_language)"
+          :alt="`Flag ${item.original_language}`"
+        />
+        <p v-else class="fw-bold">
+          {{ item.original_language }}
+        </p>
+      </div>
 
-      Voto: <i v-html="getStarsRating(item.vote_average)"></i>
+      <h4>Voto:</h4>
+      <i class="text-warning" v-html="getStarsRating(item.vote_average)"></i>
 
-      Overview: {{ item.overview }}
+      <h4>Overview:</h4>
+      {{ item.overview }}
     </div>
   </div>
 </template>
@@ -122,5 +129,6 @@ export default {
   max-height: 1000px;
   border: 1px solid black;
   margin: 20px;
+  background-color: black;
 }
 </style>
