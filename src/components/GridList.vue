@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h2>{{ title }}</h2>
+    <!-- <h2>{{ title }}</h2> -->
     <ul>
       <CardComponent v-for="card in items" :key="card.id" :item="card" />
     </ul>

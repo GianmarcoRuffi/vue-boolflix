@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <header>
-      <h1 class="display-6">Boolflix</h1>
       <SearchBar @performSearch="search" />
     </header>
     <main>
