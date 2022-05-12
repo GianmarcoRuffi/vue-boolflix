@@ -18,13 +18,16 @@
 
     <!-- Infos -->
     <!-- id: {{ item.id }} -->
-    <div class="infos">
-      <h4>Titolo Originale:</h4>
-      <p>
-        {{ item.original_title ? item.original_title : item.original_name }}
-      </p>
-      <h4>Titolo: {{ item.title ? item.title : item.name }}</h4>
-      <div>
+    <div class="infos py-3">
+      <div class="titles">
+        <h4>Titolo Originale:</h4>
+        <span>
+          {{ item.original_title ? item.original_title : item.original_name }}
+        </span>
+        <h4 class="pt-3">Titolo:</h4>
+        <span>{{ item.title ? item.title : item.name }}</span>
+      </div>
+      <div class="language py-2">
         <h4>Lingua:</h4>
         <img
           v-if="availableFlags.includes(item.original_language)"
@@ -37,7 +40,7 @@
         </div>
       </div>
 
-      <div class="votes">
+      <div class="votes py-2">
         <h4>Voto:</h4>
         <span
           ><i
@@ -150,6 +153,8 @@ export default {
   }
 
   .infos {
+    display: flex;
+    flex-flow: column;
     background-color: black;
     width: 100%;
     height: 100%;
@@ -160,6 +165,24 @@ export default {
     top: 0;
     left: 0;
     z-index: 2;
+  }
+
+  h4 {
+    font-weight: bold;
+  }
+
+  .titles {
+    padding-bottom: 10px;
+    span {
+      font-size: 20px;
+    }
+  }
+
+  .votes,
+  .language {
+    display: flex;
+    align-items: center;
+    gap: 25px;
   }
 }
 

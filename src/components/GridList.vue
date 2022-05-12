@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss">
 section {
-  background-color: grey;
+  background-color: #222222;
   padding: 30px;
 }
 </style>
