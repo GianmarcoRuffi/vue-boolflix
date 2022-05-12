@@ -1,9 +1,9 @@
 <template>
   <section>
     <!-- <h2>{{ title }}</h2> -->
-    <ul>
+    <div class="row d-flex wrap">
       <CardComponent v-for="card in items" :key="card.id" :item="card" />
-    </ul>
+    </div>
   </section>
 </template>
 
@@ -26,7 +26,8 @@ export default {
 </script>
 
 <style lang="scss">
-body {
+section {
   background-color: grey;
+  padding: 30px;
 }
 </style>

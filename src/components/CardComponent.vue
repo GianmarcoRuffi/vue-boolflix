@@ -1,17 +1,23 @@
 <template>
-  <li>
-    Poster:
+  <div class="movie-card">
     <img
+      v-if="item.poster_path != null"
       :src="'https://image.tmdb.org/t/p/w342/' + item.poster_path"
       :alt="item.title"
     />
-    <br />
-    id: {{ item.id }}<br />
+    <img
+      v-else
+      src="https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg"
+      width="342px"
+      height="488px"
+      alt=""
+    />
+
+    <!-- id: {{ item.id }} -->
     Titolo Originale:
     {{ item.original_title ? item.original_title : item.original_name }}<br />
     Titolo: {{ item.title ? item.title : item.name }}<br />
-    Lingua: {{ item.original_language }}
-
+    Lingua:
     <img
       v-if="availableFlags.includes(item.original_language)"
       class="flag"
@@ -24,10 +30,9 @@
     <br />
 
     Voto: <i v-html="getStarsRating(item.vote_average)"></i>
-    {{ item.vote_average }}<br />
 
     Overview: {{ item.overview }}
-  </li>
+  </div>
 </template>
 
 <script>
@@ -107,4 +112,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped lang="scss">
+.movie-card {
+  max-width: 500px;
+}
+</style>
