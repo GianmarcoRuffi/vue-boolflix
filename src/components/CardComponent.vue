@@ -32,16 +32,24 @@
           :src="getFlag(item.original_language)"
           :alt="`Flag ${item.original_language}`"
         />
-        <p v-else class="fw-bold">
-          {{ item.original_language }}
-        </p>
+        <div v-else class="lang-placeholder">
+          <p class="fw-bold">{{ item.original_language }}</p>
+        </div>
       </div>
 
-      <h4>Voto:</h4>
-      <i class="text-warning" v-html="getStarsRating(item.vote_average)"></i>
-
-      <h4>Overview:</h4>
-      {{ item.overview }}
+      <div class="votes">
+        <h4>Voto:</h4>
+        <span
+          ><i
+            class="text-warning"
+            v-html="getStarsRating(item.vote_average)"
+          ></i
+        ></span>
+      </div>
+      <div class="overview">
+        <h4>Overview:</h4>
+        <p>{{ item.overview }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -125,10 +133,54 @@ export default {
 
 <style scoped lang="scss">
 .movie-card {
-  max-width: 500px;
-  max-height: 1000px;
-  border: 1px solid black;
+  width: 342px;
+  padding: 0;
+  height: auto;
+  border: 1px solid white;
   margin: 20px;
   background-color: black;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+
+  .poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .infos {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    visibility: hidden;
+    position: absolute;
+    color: white;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+}
+
+.movie-card:hover .infos {
+  visibility: visible;
+  overflow-y: scroll;
+}
+
+.lang-placeholder {
+  height: 40px;
+  width: 70px;
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 13px;
+  background-color: blue;
+  p {
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
 }
 </style>

@@ -3,7 +3,9 @@
     <SearchBar @performSearch="search" />
 
     <main>
+      <h1>Movies</h1>
       <GridList :items="movies" title="Movies" :loader="loading" />
+      <h1>Series</h1>
       <GridList :items="series" title="Series" :loader="loadingSeries" />
     </main>
   </div>
