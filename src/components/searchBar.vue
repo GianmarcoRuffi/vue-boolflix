@@ -1,18 +1,18 @@
 <template>
   <div>
-    <header class="d-flex">
-      <div class="row d-flex">
-        <div class="col-6">
-          <h1>Boolflix</h1>
-        </div>
-        <div class="col-6">
-          <input
-            type="text"
-            v-model="search"
-            @keyup.enter="$emit('performSearch', search)"
-          />
-          <button @click="cerca">Cerca</button>
-        </div>
+    <header class="d-flex row">
+      <div class="d-flex col-6 align-items-center">
+        <h1 class="px-4">Boolflix</h1>
+      </div>
+      <div
+        class="d-flex col-6 justify-content-center align-items-center justify-content-right"
+      >
+        <input
+          type="text"
+          v-model="search"
+          @keyup.enter="$emit('performSearch', search)"
+        />
+        <button @click="cerca">Cerca</button>
       </div>
     </header>
   </div>
@@ -43,22 +43,13 @@ export default {
 header {
   display: flex;
   width: 100%;
-  height: 100px;
-  .row {
-    display: flex;
-    width: 100vh;
+  height: 80px;
+  background-color: black;
 
-    .col-6 {
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      width: 50%;
-      height: 40px;
-    }
+  h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: red;
   }
-}
-
-h1 {
-  color: red;
 }
 </style>

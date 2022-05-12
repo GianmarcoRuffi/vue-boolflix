@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <header>
-      <SearchBar @performSearch="search" />
-    </header>
+    <SearchBar @performSearch="search" />
+
     <main>
       <GridList :items="movies" title="Movies" :loader="loading" />
       <GridList :items="series" title="Series" :loader="loadingSeries" />
