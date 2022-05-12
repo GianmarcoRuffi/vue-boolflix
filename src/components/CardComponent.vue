@@ -25,6 +25,8 @@
 
     Voto: <i v-html="getStarsRating(item.vote_average)"></i>
     {{ item.vote_average }}<br />
+
+    Overview: {{ item.overview }}
   </li>
 </template>
 
