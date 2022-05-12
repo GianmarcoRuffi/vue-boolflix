@@ -12,7 +12,16 @@
     Titolo: {{ item.title ? item.title : item.name }}<br />
     Lingua: {{ item.original_language }}
 
-    <img :src="getFlag(item.original_language)" /><br />
+    <img
+      v-if="availableFlags.includes(item.original_language)"
+      class="flag"
+      :src="getFlag(item.original_language)"
+      :alt="`Flag ${item.original_language}`"
+    />
+    <p v-else class="fw-bold">
+      {{ item.original_language }}
+    </p>
+    <br />
 
     Voto: <i v-html="getStarsRating(item.vote_average)"></i>
     {{ item.vote_average }}<br />
@@ -23,6 +32,26 @@
 export default {
   name: "CardComponent",
   props: { item: Object },
+
+  data: function () {
+    return {
+      availableFlags: [
+        "it",
+        "en",
+        "fr",
+        "de",
+        "es",
+        "ru",
+        "ko",
+        "nl",
+        "uk",
+        "pt",
+        "pl",
+        "ja",
+        "zh",
+      ],
+    };
+  },
 
   methods: {
     getStarsRating(rating) {
@@ -44,6 +73,8 @@ export default {
       switch (iso) {
         case "en":
           return "https://flagcdn.com/h40/gb.png";
+        case "uk":
+          return "https://flagcdn.com/h40/gb.png";
         case "it":
           return "https://flagcdn.com/h40/it.png";
         case "fr":
@@ -54,6 +85,18 @@ export default {
           return "https://flagcdn.com/h40/de.png";
         case "ru":
           return "https://flagcdn.com/h40/ru.png";
+        case "ko":
+          return "https://flagcdn.com/h40/kr.png";
+        case "nl":
+          return "https://flagcdn.com/h40/nl.png";
+        case "pt":
+          return "https://flagcdn.com/h40/pt.png";
+        case "pl":
+          return "https://flagcdn.com/h40/pl.png";
+        case "ja":
+          return "https://flagcdn.com/h40/jp.png";
+        case "zh":
+          return "https://flagcdn.com/h40/cn.png";
         default:
           return iso;
       }
