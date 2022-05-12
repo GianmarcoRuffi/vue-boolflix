@@ -14,7 +14,8 @@
 
     <img :src="getFlag(item.original_language)" /><br />
 
-    Voto: {{ item.vote_average }}<br />
+    Voto: <i v-html="getStarsRating(item.vote_average)"></i>
+    {{ item.vote_average }}<br />
   </li>
 </template>
 
@@ -24,6 +25,21 @@ export default {
   props: { item: Object },
 
   methods: {
+    getStarsRating(rating) {
+      let starsRating = Math.ceil(rating / 2);
+      let empty = '<i class="fa-regular fa-star"></i>';
+      let full = '<i class="fa-solid fa-star"></i>';
+      let htmlString = "";
+      const emptyStars = 5 - starsRating;
+      for (let i = 0; i < starsRating; i++) {
+        htmlString += full;
+      }
+      for (let i = 0; i < emptyStars; i++) {
+        htmlString += empty;
+      }
+      return htmlString;
+    },
+
     getFlag(iso) {
       switch (iso) {
         case "en":
