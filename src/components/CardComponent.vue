@@ -9,7 +9,7 @@
       />
       <img
         v-else
-        src="https://s.studiobinder.com/wp-content/uploads/2019/06/Movie-Poster-Templates-StudioBinder.jpg"
+        src="https://snipstock.com/assets/cdn/png/69fecd49db5a0817220e9d23299f07f2.png"
         width="342px"
         height="488px"
         alt=""
