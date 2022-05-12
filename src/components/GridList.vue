@@ -1,7 +1,7 @@
 <template>
   <section>
     <!-- <h2>{{ title }}</h2> -->
-    <div class="row d-flex wrap">
+    <div class="row d-flex wrap justify-content-center">
       <CardComponent v-for="card in items" :key="card.id" :item="card" />
     </div>
   </section>
