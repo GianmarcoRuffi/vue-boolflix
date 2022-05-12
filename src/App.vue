@@ -3,10 +3,15 @@
     <SearchBar @performSearch="search" />
 
     <main>
-      <h1>Movies</h1>
-      <GridList :items="movies" title="Movies" :loader="loading" />
-      <h1>Series</h1>
-      <GridList :items="series" title="Series" :loader="loadingSeries" />
+      <div class="movies-container">
+        <h1 class="categories">Movies</h1>
+        <GridList :items="movies" title="Movies" :loader="loading" />
+      </div>
+
+      <div class="series-container d-flex">
+        <h1 class="categories">Series</h1>
+        <GridList :items="series" title="Series" :loader="loadingSeries" />
+      </div>
     </main>
   </div>
 </template>
@@ -79,4 +84,14 @@ export default {
 <style lang="scss">
 @import "./styles/general.scss";
 @import "./styles/vars.scss";
+
+.categories {
+  color: red;
+  padding-left: 10px;
+}
+
+.movies-container,
+.series-container {
+  background-color: #222222;
+}
 </style>

@@ -155,7 +155,7 @@ export default {
   .infos {
     display: flex;
     flex-flow: column;
-    background-color: black;
+    background-color: #111111;
     width: 100%;
     height: 100%;
     padding: 20px;
