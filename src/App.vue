@@ -2,7 +2,7 @@
   <div id="app">
     <SearchBar @performSearch="search" />
 
-    <main>
+    <main v-if="movies.length > 0 && series.length > 0">
       <div class="movies-container">
         <h1 class="categories">Movies</h1>
         <GridList :items="movies" title="Movies" :loader="loading" />
@@ -13,6 +13,14 @@
         <GridList :items="series" title="Series" :loader="loadingSeries" />
       </div>
     </main>
+    <section v-else>
+      <div class="container welcome-page d-flex justify-content-center py-4">
+        <h1>
+          Benvenuto in Boolflix! Scegli il tuo film o la tua serie tv dal nostro
+          catalogo.
+        </h1>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -93,5 +101,10 @@ export default {
 .movies-container,
 .series-container {
   background-color: #222222;
+}
+
+.welcome-page {
+  color: red;
+  height: 745px;
 }
 </style>
