@@ -3,7 +3,7 @@
     <!-- Poster -->
     <div class="poster">
       <img
-        v-if="item.poster_path != null"
+        v-if="item.poster_path !== null"
         :src="'https://image.tmdb.org/t/p/w342/' + item.poster_path"
         :alt="item.title"
       />
@@ -27,6 +27,14 @@
         <h4 class="pt-3">Titolo:</h4>
         <span>{{ item.title ? item.title : item.name }}</span>
       </div>
+      <div class="year">
+        <h4>Data di rilascio:</h4>
+        <span v-if="item.release_date !== null && item.release_date !== ''">{{
+          item.release_date
+        }}</span>
+        <span v-else>N/A</span>
+      </div>
+
       <div class="language py-2">
         <h4>Lingua:</h4>
         <img
