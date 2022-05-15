@@ -16,7 +16,7 @@
     <section v-else>
       <div class="container welcome-page d-flex justify-content-center py-4">
         <h1>
-          Benvenuto in Boolflix! Scegli il tuo film o la tua serie tv dal nostro
+          Benvenuto su Boolflix! Scegli il tuo film o la tua serie tv dal nostro
           catalogo.
         </h1>
       </div>
